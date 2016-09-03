@@ -32,14 +32,17 @@ In order to use the extension, you will need:
 
 #### Usage
 
-Once you have this add-on activated you can now set the synchronise fields of your choosing. Please note that you must have synchronise enabled under the "WooCommerce -> Settings -> Subscriptions"
+Once you have this add-on activated you can now set the synchronise fields of your choosing.
+
+> Please note that you must have synchronise enabled under the "WooCommerce -> Settings -> Subscriptions" for this to work.
 
 To enable this on your product:
 
-1. Go to the **WooCommerce > Product > Add/Edit Product** administration screen
-2. Click the **Subscriptions** tab in the **Product Data** meta box
-3. Then, you will have the option to select the synchronise fields.
-4. Save the product.
+1. Go to the **WooCommerce > Product > Add/Edit Product** administration screen.
+2. Click the **Subscriptions** tab in the **Product Data** meta box.
+3. Add/Edit a subscription option.
+4. Then, you will have the option to select the synchronise fields.
+5. Save the product.
 
 Enjoy! :)
 
@@ -53,7 +56,7 @@ Enjoy! :)
 * Add JavaScript to update the synchronise fields when changing the billing period.
 * Test with more than one subscription scheme option.
 * Test other product types including variable.
-*
+* Test with [WooCommerce Subscribe All the Things - Sign-up and Trial Add-on](https://github.com/seb86/woocommerce-subscribe-to-all-the-things-signup-trial-add-on)
 
 # Support
 Support is only given to those who provide me a [donation](https://www.paypal.me/CodeBreaker) to help me keep the plugin maintained. [Donations](https://www.paypal.me/CodeBreaker) are done via PayPal. Once you have provided a donation, send me an email.
