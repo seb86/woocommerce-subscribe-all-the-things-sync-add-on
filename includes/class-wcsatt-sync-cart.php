@@ -1,6 +1,6 @@
 <?php
 /**
- * Cart functionality for syncronizing subscriptions in the cart items.
+ * Cart functionality for synchronizing subscriptions in the cart items.
  *
  * @class   WCSATT_SYNC_Cart
  * @version 1.0.0
@@ -15,7 +15,7 @@ class WCSATT_SYNC_Cart extends WCS_ATT_Cart {
 	 * @static
 	 */
 	public static function init() {
-		// Adds to the subscription if syncronizing is enabled and is set to a certain day, week or month on the 'wcsatt_cart_item' filter.
+		// Adds to the subscription if synchronizing is enabled and is set to a certain day, week or month on the 'wcsatt_cart_item' filter.
 		add_filter( 'wcsatt_cart_item', __CLASS__ . '::update_cart_item_sub_data', 10, 1 );
 	}
 
@@ -51,8 +51,6 @@ class WCSATT_SYNC_Cart extends WCS_ATT_Cart {
 			}
 
 		}
-
-		//print_r( $cart_item );
 
 		return $cart_item;
 	} // END update_cart_item_sub_data()
