@@ -2,7 +2,7 @@
 /*
  * Plugin Name: WooCommerce Subscribe All the Things: Sync Add-on
  * Plugin URI:  https://github.com/seb86/woocommerce-subscribe-all-the-things-sync-add-on
- * Version:     1.0.0
+ * Version:     1.0.0 Beta
  * Description: Adds synchronise options (if sync enabled) to syncronize the subscriptions billing period. Requires WooCommerce Subscribe All the Things extension v1.1.0+.
  * Author:      Sébastien Dumont
  * Author URI:  https://sebastiendumont.com
@@ -10,8 +10,8 @@
  * Text Domain: wc-satt-sync
  * Domain Path: /languages/
  *
- * Requires at least: 4.1
- * Tested up to: 4.5.3
+ * Requires at least: 4.3
+ * Tested up to: 4.6
  *
  * Copyright: © 2016 Sébastien Dumont
  * License: GNU General Public License v3.0
@@ -110,6 +110,7 @@ if ( ! class_exists( 'WCSATT_SYNC' ) ) {
 			}
 
 			require_once( 'includes/class-wcsatt-sync-cart.php' );
+			require_once( 'includes/class-wcsatt-sync-display.php' );
 			require_once( 'includes/class-wcsatt-sync-synchroniser.php' );
 
 			// Admin includes
