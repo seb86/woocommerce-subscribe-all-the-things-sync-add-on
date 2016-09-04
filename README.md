@@ -38,7 +38,7 @@ In order to use the extension, you will need:
 
 Once you have this add-on activated you can now set the synchronise fields of your choosing.
 
-> Please note that you must have synchronise enabled under the "WooCommerce -> Settings -> Subscriptions" for this to work.
+> Please note that you must have synchronise enabled under the **"WooCommerce > Settings > Subscriptions"** for this to work.
 
 To enable this on your product:
 
@@ -58,8 +58,8 @@ Enjoy! :)
 
 # To Do List
 * [ ] Possibly adjust filter `wcsatt_get_single_product_lowest_price_string` in SATT extension to apply sync date to the lowest price.
-* [ ] Need to stop the first payment date from showing on single product page.
-* [ ] Display new first payment date based on customer selection on single product page.
+* [x] Need to stop the first payment date from showing on single product page.
+* [ ] Display new first payment date based on customer selection on single product page. JavaScript required.
 * [ ] Add JavaScript to update the synchronise fields when changing the billing period in admin.
 * [x] Test with more than one subscription scheme option.
 * [ ] Test with Variable Products.
@@ -70,7 +70,7 @@ Enjoy! :)
 
 # Current Issues
 * ~~Sub-total is incorrect. Possibly due to the sync date day.~~ Fixed! :smile:
-* Cart table item total is showing syncronising date twice. e.g. 40,00 € every Tuesday every Tuesday. **Only with Bundled Products**
+* Cart table item total is showing syncronising date twice. e.g. 40 € every Tuesday every Tuesday. **Only with Bundled Products**
 * ~~Recurring Total is showing correct for first renewal but shows the following week also and for free. Quantity of the only item in cart is one. **Only with Bundled Products**~~ Fixed! :smile:
 
 # Support
