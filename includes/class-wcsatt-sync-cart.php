@@ -39,7 +39,7 @@ class WCSATT_SYNC_Cart extends WCS_ATT_Cart {
 			$payment_day = isset( $active_scheme['subscription_payment_sync_date'] ) ? $active_scheme['subscription_payment_sync_date'] : 0;
 
 			// If the cart item is a child item then reset the payment day to zero to disable sync for child items.
-			if ( false !== $container_key ) { $payment_day = 0; }
+			if ( true !== $container_key ) { $payment_day = 0; }
 
 			// Is the subscription period set yearly?
 			if ( 'year' == $active_scheme['subscription_period'] ) {
