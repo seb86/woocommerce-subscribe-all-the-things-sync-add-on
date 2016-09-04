@@ -24,9 +24,6 @@ class WCSATT_SYNC_Display extends WCS_ATT_Display {
 		// Filters the price string to include the synchronised payment date to pass per scheme option on the 'wcsatt_single_product_subscription_scheme_price_html' filter.
 		add_filter( 'wcsatt_single_product_subscription_scheme_price_html', __CLASS__ . '::get_price_string', 10, 2 );
 
-		// Filters the lowest price string to include the synchronised payment date on the 'wcsatt_get_single_product_lowest_price_string' filter.
-		add_filter( 'wcsatt_get_single_product_lowest_price_string', __CLASS__ . '::get_lowest_price_string', 10, 2 );
-
 		// Filters the lowest price subscription scheme data on the 'wcsatt_get_lowest_price_sub_scheme_data' filter.
 		add_filter( 'wcsatt_get_lowest_price_sub_scheme_data', __CLASS__ . '::get_lowest_price_sub_scheme_data', 10, 2 );
 
@@ -101,29 +98,6 @@ class WCSATT_SYNC_Display extends WCS_ATT_Display {
 
 		return $prices;
 	} // END get_price_string()
-
-	/**
-	 * Filters the price string to include the synchronised
-	 * payment date on the lowest subscription scheme.
-	 *
-	 * @access public
-	 * @static
-	 * @param  array $prices
-	 * @param  array $lowest_subscription_scheme
-	 * @return array
-	 */
-	public static function get_lowest_price_string( $prices, $lowest_subscription_scheme ) {
-		if ( 'year' == $lowest_subscription_scheme[ 'subscription_period' ] ) {
-			$prices[ 'subscription_payment_sync_date' ] = array(
-				'day'   => $lowest_subscription_scheme[ 'subscription_payment_sync_date_day' ],
-				'month' => $lowest_subscription_scheme[ 'subscription_payment_sync_date_month' ]
-			);
-		} else {
-			$prices[ 'subscription_payment_sync_date' ] = $lowest_subscription_scheme[ 'subscription_payment_sync_date' ];
-		}
-
-		return $prices;
-	} // END get_lowest_price_string()
 
 	/**
 	 * Adds the synchronised payment date to the lowest subscription scheme option.

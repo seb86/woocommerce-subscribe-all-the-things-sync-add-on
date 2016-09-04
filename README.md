@@ -57,7 +57,6 @@ Enjoy! :)
 **Example screenshot of the product meta data for a simple product showing the subscriptions tab with the synchronise fields.**
 
 # To Do List
-* [ ] Possibly adjust filter `wcsatt_get_single_product_lowest_price_string` in SATT extension to apply sync date to the lowest price.
 * [x] Need to stop the first payment date from showing on single product page.
 * [ ] Display new first payment date based on customer selection on single product page. JavaScript required.
 * [ ] Add JavaScript to update the synchronise fields when changing the billing period in admin.
