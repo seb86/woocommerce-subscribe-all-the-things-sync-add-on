@@ -57,15 +57,21 @@ Enjoy! :)
 **Example screenshot of the product meta data for a simple product showing the subscriptions tab with the synchronise fields.**
 
 # To Do List
-* [ ] `wcsatt_get_single_product_lowest_price_string` filter needs adjusting in SATT extension to apply sync date.
-* [ ] Need to stop first payment date from showing on single product page.
-* [ ] Add JavaScript to update the synchronise fields when changing the billing period.
+* [ ] Possibly adjust filter `wcsatt_get_single_product_lowest_price_string` in SATT extension to apply sync date to the lowest price.
+* [ ] Need to stop the first payment date from showing on single product page.
+* [ ] Display new first payment date based on customer selection on single product page.
+* [ ] Add JavaScript to update the synchronise fields when changing the billing period in admin.
 * [x] Test with more than one subscription scheme option.
-* [ ] Test other product types including variable.
-* [ ] Test with [WooCommerce Subscribe All the Things - Sign-up and Trial Add-on](https://github.com/seb86/woocommerce-subscribe-to-all-the-things-signup-trial-add-on)
+* [ ] Test with Variable Products.
+* [ ] Test with Product Bundles.
+* [ ] Test with Composite Products.
+* [x] Test with Mix and Match Products.
+* [x] Test with [WooCommerce Subscribe All the Things - Sign-up and Trial Add-on](https://github.com/seb86/woocommerce-subscribe-to-all-the-things-signup-trial-add-on)
 
 # Current Issues
-* Sub-total is incorrect. Possibly due to the sync date day.
+* ~~Sub-total is incorrect. Possibly due to the sync date day.~~ Fixed! :smile:
+* Cart table item total is showing syncronising date twice. e.g. 40,00 € every Tuesday every Tuesday. **Only with Bundled Products**
+* Recurring Total is showing correct for first renewal but shows the following week also and for free. Quantity of the only item in cart is one. **Only with Bundled Products**
 
 # Support
 Support is only given to those who provide me a [donation](https://www.paypal.me/CodeBreaker) to help me keep the plugin maintained. [Donations](https://www.paypal.me/CodeBreaker) are done via PayPal. Once you have provided a donation, send me an email.
