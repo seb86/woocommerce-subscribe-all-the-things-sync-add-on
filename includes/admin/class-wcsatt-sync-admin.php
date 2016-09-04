@@ -56,18 +56,18 @@ class WCSATT_SYNC_Admin extends WCS_ATT_Admin {
 		global $wp_locale;
 
 		if ( WC_Subscriptions_Synchroniser::is_syncing_enabled() ) {
-			// Set month as the default billing period
+			// Set month as the default billing period.
 			$subscription_period = isset( $scheme_data[ 'subscription_period' ] ) ? $scheme_data[ 'subscription_period' ] : 'month';
 
-			// Determine whether to display the week/month sync fields or the annual sync fields
+			// Determine whether to display the week/month sync fields or the annual sync fields.
 			$display_week_month_select = ( ! in_array( $subscription_period, array( 'month', 'week' ) ) ) ? 'display: none;' : '';
 			$display_annual_select     = ( 'year' != $subscription_period ) ? 'display: none;' : '';
 			$payment_day               = isset( $scheme_data[ 'subscription_payment_sync_date' ] ) ? $scheme_data[ 'subscription_payment_sync_date' ] : 0;
 
-			// An annual sync date is already set in the form: array( 'day' => 'nn', 'month' => 'nn' ), create a MySQL string from those values (year and time are irrelvent as they are ignored)
-			if ( is_array( $payment_day ) ) {
-				$payment_month = $payment_day['month'];
-				$payment_day   = $payment_day['day'];
+			// Is the subscription period yearly?
+			if ( 'year' == $subscription_period ) {
+				$payment_month = isset( $scheme_data[ 'subscription_payment_sync_date_month' ] ) ? $scheme_data[ 'subscription_payment_sync_date_month' ] : date( 'm' );
+				$payment_day   = isset( $scheme_data[ 'subscription_payment_sync_date_day' ] ) ? $scheme_data[ 'subscription_payment_sync_date_day' ] : 0;
 			} else {
 				$payment_month = date( 'm' );
 			}
@@ -134,8 +134,8 @@ class WCSATT_SYNC_Admin extends WCS_ATT_Admin {
 			if ( 'year' == $posted_scheme['subscription_period_variable'] ) { // save the day & month for the date rather than just the day
 
 				$posted_scheme[ 'subscription_payment_sync_date_variable' ] = array(
-					'day'    => isset( $posted_scheme[ 'subscription_payment_sync_date_day_variable' ] ) ? $posted_scheme[ 'subscription_payment_sync_date_day_variable' ] : 0,
-					'month'  => isset( $posted_scheme[ 'subscription_payment_sync_date_month_variable' ] ) ? $posted_scheme[ 'subscription_payment_sync_date_month_variable' ] : '01',
+					'day'   => isset( $posted_scheme[ 'subscription_payment_sync_date_day_variable' ] ) ? $posted_scheme[ 'subscription_payment_sync_date_day_variable' ] : 0,
+					'month' => isset( $posted_scheme[ 'subscription_payment_sync_date_month_variable' ] ) ? $posted_scheme[ 'subscription_payment_sync_date_month_variable' ] : '01',
 				);
 
 				$posted_scheme[ 'subscription_payment_sync_date_day' ]   = $posted_scheme[ 'subscription_payment_sync_date_day_variable' ];
@@ -155,8 +155,8 @@ class WCSATT_SYNC_Admin extends WCS_ATT_Admin {
 		if ( 'year' == $posted_scheme['subscription_period'] ) { // save the day & month for the date rather than just the day
 
 			$posted_scheme[ 'subscription_payment_sync_date' ] = array(
-				'day'    => isset( $posted_scheme[ 'subscription_payment_sync_date_day' ] ) ? $posted_scheme[ 'subscription_payment_sync_date_day' ] : 0,
-				'month'  => isset( $posted_scheme[ 'subscription_payment_sync_date_month' ] ) ? $posted_scheme[ 'subscription_payment_sync_date_month' ] : '01',
+				'day'   => isset( $posted_scheme[ 'subscription_payment_sync_date_day' ] ) ? $posted_scheme[ 'subscription_payment_sync_date_day' ] : 0,
+				'month' => isset( $posted_scheme[ 'subscription_payment_sync_date_month' ] ) ? $posted_scheme[ 'subscription_payment_sync_date_month' ] : '01',
 			);
 
 		} else {
