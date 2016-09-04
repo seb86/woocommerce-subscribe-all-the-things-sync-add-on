@@ -33,18 +33,12 @@ class WCSATT_SYNC_Cart extends WCS_ATT_Cart {
 
 		if ( $active_scheme && $cart_item['data']->is_converted_to_sub == 'yes' ) {
 
-			// Checks if the cart item is a supported bundle type child.
-			$container_key = WCS_ATT_Integrations::has_bundle_type_container( $cart_item );
-
 			$payment_day = isset( $active_scheme['subscription_payment_sync_date'] ) ? $active_scheme['subscription_payment_sync_date'] : 0;
-
-			// If the cart item is a child item then reset the payment day to zero to disable sync for child items.
-			if ( true !== $container_key ) { $payment_day = 0; }
 
 			// Is the subscription period set yearly?
 			if ( 'year' == $active_scheme['subscription_period'] ) {
-				$cart_item['data']->subscription_payment_sync_date       = $payment_day;
-				$cart_item['data']->subscription_payment_sync_date_day   = $payment_day;
+				$cart_item['data']->subscription_payment_sync_date     = $payment_day;
+				$cart_item['data']->subscription_payment_sync_date_day = $payment_day;
 
 				$payment_month = isset( $active_scheme['subscription_payment_sync_date_month'] ) ? $active_scheme['subscription_payment_sync_date_month'] : date( 'm' );
 
