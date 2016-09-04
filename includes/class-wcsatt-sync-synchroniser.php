@@ -18,9 +18,8 @@ class WCSATT_SYNC_Synchroniser {
 		// Adds the SATT supported product types to allow them to be synced using the 'woocommerce_subscriptions_is_product_types_synced' filter.
 		add_filter( 'woocommerce_subscriptions_is_product_types_synced', __CLASS__ . '::add_supported_product_types', 10, 1 );
 
-		// Overrides the subscriptions syncronized payment date if one exists on the 'woocommerce_subscriptions_get_products_payment_day' filter.
-		add_filter( 'woocommerce_subscriptions_get_products_payment_day', __CLASS__ . '::set_sync_date', 10, 2 );
-
+		// Removes the products first payment date if the product type is not a simple or variable subscription.
+		add_action( 'woocommerce_single_product_summary', __CLASS__ . '::remove_products_first_payment_date', 32 );
 		} // END init()
 
 	/**
@@ -38,25 +37,25 @@ class WCSATT_SYNC_Synchroniser {
 	} // END add_supported_product_types()
 
 	/**
-	 * Filters the syncronized payment date if syncing is enabled to
-	 * get the day of the week, month or year on which the
-	 * subscription's scheme payments should be synchronised to.
+	 * Removes the products first payment date from the product summary
+	 * if the product type is not any of the standard subscription product types.
 	 *
 	 * @access public
-	 * @param  int    $payment_date
-	 * @param  object WC_Product $product
-	 * @return int
+	 * @global WC_Product $product
+	 * @return void
 	 */
-	public static function set_sync_date( $payment_date, $product ) {
-		if ( ! WC_Subscriptions_Synchroniser::is_syncing_enabled() ) {
-			return $payment_date;
+	public static function remove_products_first_payment_date() {
+		global $product;
+
+		if (
+			! $product->is_type( 'subscription' ) ||
+			! $product->is_type( 'variable-subscription' ) ||
+			! $product->is_type( 'subscription_variation' )
+		) {
+			remove_action( 'woocommerce_single_product_summary', 'WC_Subscriptions_Synchroniser::products_first_payment_date', 31 );
+			remove_action( 'woocommerce_subscriptions_product_first_renewal_payment_time', 'WC_Subscriptions_Synchroniser::products_first_renewal_payment_time', 10, 4 );
 		}
-
-		$product_id = $product->id;
-
-
-		return 3;
-	}
+	} // END remove_products_first_payment_date()
 
 } // END class
 
