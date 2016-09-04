@@ -71,7 +71,7 @@ Enjoy! :)
 # Current Issues
 * ~~Sub-total is incorrect. Possibly due to the sync date day.~~ Fixed! :smile:
 * Cart table item total is showing syncronising date twice. e.g. 40,00 € every Tuesday every Tuesday. **Only with Bundled Products**
-* Recurring Total is showing correct for first renewal but shows the following week also and for free. Quantity of the only item in cart is one. **Only with Bundled Products**
+* ~~Recurring Total is showing correct for first renewal but shows the following week also and for free. Quantity of the only item in cart is one. **Only with Bundled Products**~~ Fixed! :smile:
 
 # Support
 Support is only given to those who provide me a [donation](https://www.paypal.me/CodeBreaker) to help me keep the plugin maintained. [Donations](https://www.paypal.me/CodeBreaker) are done via PayPal. Once you have provided a donation, send me an email.
