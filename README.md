@@ -6,9 +6,13 @@ This is an add-on extension for [WooCommerce Subscribe All the Things](https://g
 
 > Please note: This extension is currently in development.
 
-The goal of the extension is to allow you to synchronise the subscriptions billing period per subscription scheme.
+The goal of the extension is to allow you to synchronise the subscriptions billing period per subscription scheme. Requires [this push request](https://github.com/Prospress/woocommerce-subscriptions/pull/1630) to be applied in order for extension to work.
 
 This works with all supported product types in WooCommerce Subscribe All the Things.
+
+![Simple Product with Sync Subscription on 3 Options](https://cldup.com/p2wenYwm0K.png)
+
+**Example of a Simple Product with synchronisation enabled on three Subscription Schemes.**
 
 # Guide
 
@@ -53,10 +57,15 @@ Enjoy! :)
 **Example screenshot of the product meta data for a simple product showing the subscriptions tab with the synchronise fields.**
 
 # To Do List
-* Add JavaScript to update the synchronise fields when changing the billing period.
-* Test with more than one subscription scheme option.
-* Test other product types including variable.
-* Test with [WooCommerce Subscribe All the Things - Sign-up and Trial Add-on](https://github.com/seb86/woocommerce-subscribe-to-all-the-things-signup-trial-add-on)
+* [ ] `wcsatt_get_single_product_lowest_price_string` filter needs adjusting in SATT extension to apply sync date.
+* [ ] Need to stop first payment date from showing on single product page.
+* [ ] Add JavaScript to update the synchronise fields when changing the billing period.
+* [x] Test with more than one subscription scheme option.
+* [ ] Test other product types including variable.
+* [ ] Test with [WooCommerce Subscribe All the Things - Sign-up and Trial Add-on](https://github.com/seb86/woocommerce-subscribe-to-all-the-things-signup-trial-add-on)
+
+# Current Issues
+* Sub-total is incorrect. Possibly due to the sync date day.
 
 # Support
 Support is only given to those who provide me a [donation](https://www.paypal.me/CodeBreaker) to help me keep the plugin maintained. [Donations](https://www.paypal.me/CodeBreaker) are done via PayPal. Once you have provided a donation, send me an email.
