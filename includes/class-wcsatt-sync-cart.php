@@ -15,13 +15,13 @@ class WCSATT_SYNC_Cart extends WCS_ATT_Cart {
 	 * @static
 	 */
 	public static function init() {
-		// Adds to the subscription if synchronizing is enabled and is set to a certain day, week or month on the 'wcsatt_cart_item' filter.
+		// Adds to the subscription if synchronizing is enabled and is set to a certain day, week, month or year on the 'wcsatt_cart_item' filter.
 		add_filter( 'wcsatt_cart_item', __CLASS__ . '::update_cart_item_sub_data', 10, 1 );
 	}
 
 	/**
 	 * Adds to the cart item data for a subscription product that
-	 * is syncronized to a certain day, week or month.
+	 * is syncronized to a certain day, week, month or year.
 	 *
 	 * @access public
 	 * @static
@@ -38,16 +38,19 @@ class WCSATT_SYNC_Cart extends WCS_ATT_Cart {
 
 			$payment_day = isset( $active_scheme['subscription_payment_sync_date'] ) ? $active_scheme['subscription_payment_sync_date'] : 0;
 
-			// If the cart item is a child item then reset the sign-up fee.
+			// If the cart item is a child item then reset the payment day to zero to disable sync for child items.
 			if ( false !== $container_key ) { $payment_day = 0; }
 
-			// If the payment day is not an array and is more than zero then set the conditions for the cart.
-			if ( ! is_array( $payment_day ) && $payment_day > 0 ) {
-				$cart_item['data']->subscription_payment_sync_date = $payment_day;
-			} else {
+			// Is the subscription period set yearly?
+			if ( 'year' == $active_scheme['subscription_period'] ) {
 				$cart_item['data']->subscription_payment_sync_date       = $payment_day;
-				$cart_item['data']->subscription_payment_sync_date_day   = $payment_day['day'];
-				$cart_item['data']->subscription_payment_sync_date_month = $payment_day['month'];
+				$cart_item['data']->subscription_payment_sync_date_day   = $payment_day;
+
+				$payment_month = isset( $active_scheme['subscription_payment_sync_date_month'] ) ? $active_scheme['subscription_payment_sync_date_month'] : date( 'm' );
+
+				$cart_item['data']->subscription_payment_sync_date_month = $payment_month;
+			} else {
+				$cart_item['data']->subscription_payment_sync_date = $payment_day;
 			}
 
 		}
