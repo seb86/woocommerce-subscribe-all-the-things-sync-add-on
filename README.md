@@ -10,7 +10,7 @@ The goal of the extension is to allow you to synchronise the subscriptions billi
 
 This works with all supported product types in WooCommerce Subscribe All the Things.
 
-![Simple Product with Sync Subscription on 3 Options](https://cldup.com/p2wenYwm0K.png)
+![Simple Product with Sync Subscription on 3 Options](https://cldup.com/jjeMMwekqD.png)
 
 **Example of a Simple Product with synchronisation enabled on three Subscription Schemes.**
 
