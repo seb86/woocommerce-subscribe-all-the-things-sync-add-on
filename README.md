@@ -6,7 +6,7 @@ This is an add-on extension for [WooCommerce Subscribe All the Things](https://g
 
 > Please note: This extension is currently in development.
 
-The goal of the extension is to allow you to synchronise the subscriptions billing period per subscription scheme. Requires [this push request](https://github.com/Prospress/woocommerce-subscriptions/pull/1630) to be applied in order for extension to work.
+The goal of the extension is to allow you to synchronise the subscriptions billing period per subscription scheme. Requires [this push request](https://github.com/Prospress/woocommerce-subscriptions/pull/1635) to be applied in order for the extension to work.
 
 This works with all supported product types in WooCommerce Subscribe All the Things.
 
@@ -69,7 +69,7 @@ Enjoy! :)
 
 # Current Issues
 * ~~Sub-total is incorrect. Possibly due to the sync date day.~~ Fixed! :smile:
-* Cart table item total is showing syncronising date twice. e.g. 40 € every Tuesday every Tuesday. **Only with Bundled Products**
+* ~~Cart table item total is showing syncronising date twice. e.g. 40 € every Tuesday every Tuesday. **Only with Bundled Products**~~ Turns out to be a bug in SATT extension not this add-on. :smile:
 * ~~Recurring Total is showing correct for first renewal but shows the following week also and for free. Quantity of the only item in cart is one. **Only with Bundled Products**~~ Fixed! :smile:
 
 # Support

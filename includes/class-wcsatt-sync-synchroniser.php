@@ -15,26 +15,9 @@ class WCSATT_SYNC_Synchroniser {
 	 * @static
 	 */
 	public static function init() {
-		// Adds the SATT supported product types to allow them to be synced using the 'woocommerce_subscriptions_is_product_types_synced' filter.
-		add_filter( 'woocommerce_subscriptions_is_product_types_synced', __CLASS__ . '::add_supported_product_types', 10, 1 );
-
 		// Removes the products first payment date if the product type is not a simple or variable subscription.
 		add_action( 'woocommerce_single_product_summary', __CLASS__ . '::remove_products_first_payment_date', 32 );
 		} // END init()
-
-	/**
-	 * Adds the SATT supported product types to 'woocommerce_subscriptions_is_product_types_synced'
-	 *
-	 * @access public
-	 * @param  array $product_types
-	 * @return array
-	 */
-	public static function add_supported_product_types( $product_types ) {
-		$satt_product_types = WCS_ATT()->get_supported_product_types();
-		$product_types = array_merge( $satt_product_types, $product_types );
-
-		return $product_types;
-	} // END add_supported_product_types()
 
 	/**
 	 * Removes the products first payment date from the product summary
