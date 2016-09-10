@@ -6,7 +6,7 @@ This is an add-on extension for [WooCommerce Subscribe All the Things](https://g
 
 > Please note: This extension is currently in development.
 
-The goal of the extension is to allow you to synchronise the subscriptions billing period per subscription scheme. Requires [this push request](https://github.com/Prospress/woocommerce-subscriptions/pull/1635) to be applied in order for the extension to work.
+The goal of the extension is to allow you to synchronise the subscriptions billing period per subscription scheme. ~~Requires [this push request](https://github.com/Prospress/woocommerce-subscriptions/pull/1635) to be applied in order for the extension to work.~~ Merged! :smile:
 
 This works with all supported product types in WooCommerce Subscribe All the Things.
 
@@ -45,16 +45,14 @@ To enable this on your product:
 1. Go to the **WooCommerce > Product > Add/Edit Product** administration screen.
 2. Click the **Subscriptions** tab in the **Product Data** meta box.
 3. Add/Edit a subscription option.
-4. Then, you will have the option to select the synchronise fields.
+4. Then, you will have the option to select from the synchronise field.
 5. Save the product.
 
 Enjoy! :)
 
-![Synchronize fields on the subscriptions tab]()
+![Synchronize field on the subscriptions tab](https://cldup.com/PAwOfd_a2A.png)
 
-> TODO: Add screenshot here.
-
-**Example screenshot of the product meta data for a simple product showing the subscriptions tab with the synchronise fields.**
+**Example screenshot of the product meta data for a mix and match product showing the subscriptions tab with the synchronise field.**
 
 # To Do List
 * [x] Need to stop the first payment date from showing on single product page.
