@@ -15,6 +15,9 @@ class WCSATT_SYNC_Admin extends WCS_ATT_Admin {
 	 * @static
 	 */
 	public static function init() {
+		// Admin scripts and styles.
+		add_action( 'admin_enqueue_scripts', __CLASS__ . '::admin_scripts' );
+
 		// Adds to the default values for subscriptions schemes content.
 		add_filter( 'wcsatt_default_subscription_scheme', __CLASS__ . '::subscription_schemes_content', 10, 1 );
 
@@ -24,6 +27,32 @@ class WCSATT_SYNC_Admin extends WCS_ATT_Admin {
 		// Filter the subscription scheme data to process the sign up and trial options on the ''wcsatt_subscription_scheme_process_scheme_data' filter.
 		add_filter( 'wcsatt_subscription_scheme_process_scheme_data', __CLASS__ . '::wcsatt_sync_process_scheme_data', 10, 2 );
 	}
+
+	/**
+	 * Load scripts and styles.
+	 *
+	 * @return void
+	 */
+	public static function admin_scripts() {
+		global $post;
+
+		// Get admin screen id.
+		$screen      = get_current_screen();
+		$screen_id   = $screen ? $screen->id : '';
+
+		$add_scripts = false;
+		$suffix      = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
+		if ( in_array( $screen_id, array( 'edit-product', 'product' ) ) ) {
+			$add_scripts = true;
+			$writepanel_dependencies = array( 'jquery', 'jquery-ui-datepicker', 'wc-admin-meta-boxes', 'wc-admin-product-meta-boxes' );
+		}
+
+		if ( $add_scripts ) {
+			wp_register_script( 'wcsatt_sync_writepanel', WCSATT_SYNC()->plugin_url() . '/assets/js/wcsatt-sync-write-panels' . $suffix . '.js', $writepanel_dependencies, WCSATT_SYNC::VERSION );
+		}
+
+	} // END admin_scripts()
 
 	/**
 	 * Adds the default values for subscriptions schemes content.
@@ -72,7 +101,7 @@ class WCSATT_SYNC_Admin extends WCS_ATT_Admin {
 				$payment_month = date( 'm' );
 			}
 
-			echo '<div class="options_group subscription_scheme_sync">';
+			echo '<div class="options_group subscription_scheme_product_data sync_scheme">';
 			echo '<div class="subscription_sync" style="' . esc_attr( $display_week_month_select ) . '">';
 
 			woocommerce_wp_select( array(
