@@ -49,7 +49,7 @@ class WCSATT_SYNC_Admin extends WCS_ATT_Admin {
 		}
 
 		if ( $add_scripts ) {
-			wp_register_script( 'wcsatt_sync_writepanel', WCSATT_SYNC()->plugin_url() . '/assets/js/wcsatt-sync-write-panels' . $suffix . '.js', $writepanel_dependencies, WCSATT_SYNC::VERSION );
+			wp_register_script( 'wcsatt_sync_writepanel', WCSATT_SYNC::plugin_url() . '/assets/js/wcsatt-sync-write-panels' . $suffix . '.js', $writepanel_dependencies, WCSATT_SYNC::VERSION );
 			wp_enqueue_script( 'wcsatt_sync_writepanel' );
 		}
 
