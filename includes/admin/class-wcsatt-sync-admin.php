@@ -34,8 +34,6 @@ class WCSATT_SYNC_Admin extends WCS_ATT_Admin {
 	 * @return void
 	 */
 	public static function admin_scripts() {
-		global $post;
-
 		// Get admin screen id.
 		$screen      = get_current_screen();
 		$screen_id   = $screen ? $screen->id : '';
