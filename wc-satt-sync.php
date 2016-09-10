@@ -85,6 +85,10 @@ if ( ! class_exists( 'WCSATT_SYNC' ) ) {
 			add_filter( 'plugin_row_meta', array( $this, 'plugin_meta_links' ), 10, 4 );
 		}
 
+		public function plugin_url() {
+			return plugins_url( basename( plugin_dir_path(__FILE__) ), basename( __FILE__ ) );
+		}
+
 		public function plugin_path() {
 			return untrailingslashit( plugin_dir_path( __FILE__ ) );
 		} // END plugin_path()
