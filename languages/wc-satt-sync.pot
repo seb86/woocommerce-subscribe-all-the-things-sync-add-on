@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WooCommerce Subscribe to All the Things - Sync Add-on\n"
-"POT-Creation-Date: 2016-09-03 19:11+0200\n"
+"POT-Creation-Date: 2016-09-12 05:40+0200\n"
 "PO-Revision-Date: 2016-06-13 06:51+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 1.8.9\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: wc-satt-sync.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -20,22 +20,61 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: includes/admin/class-wcsatt-sync-admin.php:97
+#: includes/admin/class-wcsatt-sync-admin.php:125
 msgctxt "input field placeholder for day field for annual subscriptions"
 msgid "Day"
+msgstr ""
+
+#: includes/class-wcsatt-sync-cart.php:53
+#, php-format
+msgid "every %s"
+msgstr ""
+
+#: includes/class-wcsatt-sync-cart.php:56
+#, php-format
+msgid "every %1$s on %2$s"
+msgstr ""
+
+#: includes/class-wcsatt-sync-cart.php:63
+msgid "on the last day of each month"
+msgstr ""
+
+#: includes/class-wcsatt-sync-cart.php:66
+#, php-format
+msgid "on the %s of each month"
+msgstr ""
+
+#: includes/class-wcsatt-sync-cart.php:71
+#, php-format
+msgid "on the last day of every %s month"
+msgstr ""
+
+#: includes/class-wcsatt-sync-cart.php:74
+#, php-format
+msgid "on the %1$s day of every %2$s month"
+msgstr ""
+
+#: includes/class-wcsatt-sync-cart.php:82
+#, php-format
+msgid "on %1$s %2$s each year"
+msgstr ""
+
+#: includes/class-wcsatt-sync-cart.php:85
+#, php-format
+msgid "on %1$s %2$s every %3$s year"
 msgstr ""
 
 #: wc-satt-sync.php:67 wc-satt-sync.php:76
 msgid "Foul!"
 msgstr ""
 
-#: wc-satt-sync.php:128 wc-satt-sync.php:137
+#: wc-satt-sync.php:133 wc-satt-sync.php:142
 #, php-format
 msgid ""
 "%1$s requires at least %2$s v%3$s in order to function. Please upgrade %2$s."
 msgstr ""
 
-#: wc-satt-sync.php:161
+#: wc-satt-sync.php:166
 #, php-format
 msgid "By %s"
 msgstr ""
